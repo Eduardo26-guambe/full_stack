@@ -1,0 +1,38 @@
+<title>Sys_voto</title>
+<style>
+    *{font-family: system-ui;}
+    body{display: flex;flex-direction: column; align-items: center;padding-top: 20px;}
+    form{width: 250px; box-shadow: 4px 2px 3px 3px #999;padding: 20px; border-radius: 8px; border: 1px solid #999;}
+    fieldset{display: flex;flex-direction: column; position: relative; margin-top: 5px;border-radius: 5px;}
+    .titlo{width: max-content;padding: 3px; border: 2px solid blue;border-radius: 5px;}
+    button{width: 100%;border: none;padding: 5px;background: #00d400; color: #fff; font-weight: 700; border-radius: 5px;position: relative;margin-top: 8px;}
+    .a{position: relative;left:200px ;width: max-content;color: red;border: 2px solid; padding: 3px;border-radius: 4px;text-decoration: none;}
+</style>
+<a class="a" href="/login">Sair</a> 
+<h1>Bem vindo<%if(nome){%> <label class="titlo" style="color: blue;"><%=nome%></label> <%}%></h1>
+<form action="/votar" method="post">
+    <%if(erro){%> <div style="color: red;"><%=erro%></div> <%}%>
+    <fieldset>
+        <legend>Presidencia</legend>
+        <label><input type="radio" name="pr" value="1">Amelia</label>
+        <label><input type="radio" name="pr" value="2">Edson</label>
+        <label><input type="radio" name="pr" value="3">Germano</label>
+        <label><input type="radio" name="pr" value="4">Preciosa</label>
+    </fieldset>
+    <fieldset>
+        <legend>Secretariado</legend>
+        <label><input type="radio" name="sc" value="1">Archer</label>
+        <label><input type="radio" name="sc" value="2">Clédio</label>
+        <label><input type="radio" name="sc" value="3">David</label>
+        <label><input type="radio" name="sc" value="4">Samira</label>
+    </fieldset>
+    <fieldset>
+        <legend>Estaticista</legend>
+        <label><input type="radio" name="es" value="1">Auneta</label>
+        <label><input type="radio" name="es" value="2">Hilário</label>
+        <label><input type="radio" name="es" value="3">José</label>
+        <label><input type="radio" name="es" value="4">Luana</label>
+    </fieldset>
+    <button type="submit">Votar</button>
+    <a href="/resultados">Ver resultados</a>
+</form>

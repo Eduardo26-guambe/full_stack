@@ -1,0 +1,28 @@
+<title>Login</title>
+<style>
+    *{font-family: system-ui;}
+    body{font-family: system-ui;display: flex;flex-direction: column;align-items: center;padding-top: 50px;}
+    form{width: 300px;padding: 10px;box-shadow: 6px 3px 4px 3px #6b6b6b;border-radius: 8px;border: 1px solid #999;}
+    .input{width: 100%;padding: 8px; position: relative; margin-bottom: 8px; border-radius: 5px;border: .5px solid #999;}
+    button{width: 100%;color: #fff;background: #0e0ecf;border: none;padding: 5px;margin-top:6px ;border-radius: 5px;cursor: pointer;}
+    button:hover{background: #01016e;}
+    div{position: relative; margin-top: 5px;}
+</style>
+<form action="/login" method="post">
+    <h1>Login</h1>
+    <%if(erro){%> <div style="color: red;"><%=erro%></div> <%}%>
+
+    <input class="input" type="email" name="email" placeholder="E-mail" required>
+    <input class="input" type="password" name="senha" id="pass" placeholder="Palavrapass" required>
+    <div><input type="checkbox" id="check"> Ver senha</div>
+    <div>Não tem conta? <a href="/registro">Registre-se</a></div>
+    <button>Logar</button>
+</form>
+<script>
+    const pass=document.getElementById('pass')
+    const check=document.getElementById('check')
+
+    check.addEventListener('change', ()=>{
+        pass.type=check.checked? 'text': 'password'
+    })
+</script>
